@@ -4,20 +4,16 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        int A = sc.nextInt();
+        int B = sc.nextInt();
+        int C = sc.nextInt();
 
-        int h = sc.nextInt();
-        int m = sc.nextInt();
-        int cook = sc.nextInt();
+        int min = 60 * A + B;
+        min += C;
 
-        int cookH = (m + cook) / 60;
-        int hour = h + cookH;
-        int min = (m + cook) % 60;
+        int hour = (min / 60) % 24;
+        int minute = min % 60;
 
-        if (hour >= 24) {
-            hour = hour-24;
-            System.out.println(hour + " " + min);
-        }else {
-            System.out.println(hour + " "+min);
-        }
+        System.out.println(hour + " " + minute);
     }
 }
