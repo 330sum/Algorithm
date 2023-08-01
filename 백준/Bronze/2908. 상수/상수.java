@@ -1,16 +1,30 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        Scanner sc = new Scanner(System.in);
-        int a = sc.nextInt();
-        int b = sc.nextInt();
+        String input = br.readLine();
+        String[] split = input.split(" ");
 
-        a = (a % 10) * 100 + ((a % 100) / 10 * 10) + a / 100;
-        b = (b % 10) * 100 + ((b % 100) / 10 * 10) + b / 100;
+        String[] arr = new String[split.length];
+        // 역순으로 변경
+        for (int i = 0; i < split.length; i++) {
+            arr[i] = new StringBuffer(split[i]).reverse().toString();
+        }
 
-        System.out.println(a > b ? a : b);
+        // 대소비교
+        int max = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (max < Integer.parseInt(arr[i])) {
+                max = Integer.parseInt(arr[i]);
+            }
+        }
+        System.out.println(max);
+
+
     }
 }
