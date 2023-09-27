@@ -1,5 +1,2 @@
-str = input()
-split = str.split()
-l = list(split)
-print('a = ', l[0])
-print('b = ', l[1])
+a, b = map(int, input().strip().split(' '))
+print(f"a = {a}\nb = {b}")
